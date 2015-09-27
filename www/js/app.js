@@ -71,11 +71,30 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('app.authentication', {
-      url: '/authentication',
+    .state('app.transaction', {
+      url: '/transaction',
       views: {
         'menuContent' : {
-          templateUrl: "templates/authentication.html",
+          templateUrl: "templates/transaction.html",
+          controller: 'PlaylistsCtrl'
+        }
+      }
+    })
+
+    .state('app.home_queue', {
+      url: '/home_queue',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/home_queue.html",
+          controller: "PlaylistsCtrl"
+        }
+      }
+    })
+    .state('app.signup', {
+      url: '/signup',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/signup.html",
           controller: 'PlaylistsCtrl'
         }
       }

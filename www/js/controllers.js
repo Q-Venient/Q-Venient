@@ -38,32 +38,11 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
       $location.path('app/home_login');
     }, 1000);
-
   };
-
-  // $ionicModal.fromTemplateUrl('templates/authentication.html', {
-  //   scope: $scope
-  // }).then(function(modals) {
-  //   $scope.modals = modals;
-  // });
-
-  // $scope.authentication = function() {
-  //   $scope.modals.show();
-
-  //   $timeout(function() {
-  //     $scope.closeLogin();
-  //     $location.path('app/home_login');
-  //     $scope.modals.hide();
-  //   }, 1000);
-  // };
-
-    // Triggered in the login modal to close it
-  // $scope.closeLoginz = function() {
-  //   $scope.modals.hide();
-  // };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+
+.controller('PlaylistsCtrl', function($scope, $timeout, $location) {
   // $scope.playlists = [
   //   { title: 'Reggae', id: 1 },
   //   { title: 'Chill', id: 2 },
@@ -74,6 +53,22 @@ angular.module('starter.controllers', [])
   // ];
   $scope.title="Q-Venient";
   $scope.login_title="Home";
+
+  $scope.queue = {};
+
+  $scope.next = function() {
+    console.log('Queue Number', $scope.queue);
+    $timeout(function() {
+        $location.path('app/transaction');
+      }, 1000); 
+  };
+
+  $scope.nextqueue = function() {
+    console.log('Going In......');
+    $timeout(function() {
+      $location.path('app/home_queue');
+    }, 1000);
+  }
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

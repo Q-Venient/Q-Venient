@@ -8,7 +8,7 @@
   				<div class="list">
 	  				<label class="item item-input item-stacked-label">
 					    <span class="input-label">Mobile Number</span>
-					    	<input type="text" placeholder="ex. 09055927698">
+					    	<input type="text" placeholder="ex. 09055927698" ng-model="queue.number">
 				  </label>
 				</div>	
   			</div>
@@ -16,7 +16,7 @@
   	</div>
   		<div class="card">
 	  		<div class="item item-text-wrap">
-	  			<button class="button button-block button-calm">Queue</button>
+	  			<button class="button button-block button-calm" ng-click="next()">Queue</button>
 	  		</div>
 	  	</div>
   	<footer>
