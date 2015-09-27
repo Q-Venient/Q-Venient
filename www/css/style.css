@@ -1,1 +1,20 @@
 /* Empty. Add your own CSS if you like */
+.ads {
+	background-color: green;
+	width: auto;
+    height: auto;
+    margin-top: -4px;
+}
+
+.ads-pos {
+    text-align: center;
+}
+
+footer {
+	margin-top: auto;
+}
+
+
+h2 {
+	color: blue;
+}
