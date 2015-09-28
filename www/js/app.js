@@ -90,12 +90,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.signup', {
-      url: '/signup',
+    .state('app.adminView', {
+       url: '/adminView',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/Admin/admin_view.html",
+          controller: "PlaylistsCtrl"
+        }
+      }
+    })
+    .state('app.signUp', {
+       url: '/signUp',
       views: {
         'menuContent' : {
           templateUrl: "templates/signup.html",
-          controller: 'PlaylistsCtrl'
+          controller: "PlaylistsCtrl"
         }
       }
     })

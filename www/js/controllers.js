@@ -29,28 +29,31 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
   };
 
+
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+    // console.log('Doing login', $scope.loginData);
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-      $location.path('app/home_login');
-    }, 1000);
+    console.log($scope.loginData);
+    if($scope.loginData.username == "admin" && $scope.loginData.password == "123456"){
+          $timeout(function() {
+          $scope.closeLogin();
+          $location.path('app/adminView');
+        }, 1000);
+    } else {
+          $timeout(function() {
+          $scope.closeLogin();
+          $location.path('app/home_login');
+        }, 1000);
+    }
+   
   };
 })
 
 
 .controller('PlaylistsCtrl', function($scope, $timeout, $location) {
-  // $scope.playlists = [
-  //   { title: 'Reggae', id: 1 },
-  //   { title: 'Chill', id: 2 },
-  //   { title: 'Dubstep', id: 3 },
-  //   { title: 'Indie', id: 4 },
-  //   { title: 'Rap', id: 5 },
-  //   { title: 'Cowbell', id: 6 }
-  // ];
+
   $scope.title="Q-Venient";
   $scope.login_title="Home";
 
@@ -62,6 +65,10 @@ angular.module('starter.controllers', [])
         $location.path('app/transaction');
       }, 1000); 
   };
+
+  $scope.signUp = function() {
+    $location.path('app/signUp');
+  }
 
   $scope.nextqueue = function() {
     console.log('Going In......');
