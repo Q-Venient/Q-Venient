@@ -32,25 +32,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.login', {
+    .state('login', {
     url: '/login',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/login.html',
-        controller: 'PlaylistsCtrl'
-      }
-    }
+    templateUrl: 'templates/login.html',
+    controller: 'AppCtrl'
   })
 
-  .state('app.contact', {
-    url: '/contact',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/contact.html',
-        controller: 'PlaylistsCtrl'
-      }
-    }
-  })
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signup.html'
+    })
 
   .state('app.about', {
       url: '/about',
@@ -71,53 +62,115 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('app.home_login', {
+////////////// Customer User //////////////////////////
+
+  .state('customer', {
+    url: '/customer',
+    abstract: true,
+    templateUrl: 'templates/customer/customer_menu.html',
+    controller: 'PlaylistsCtrl'
+  })
+
+    .state('customer.home_login', {
       url: '/home_login',
       views: {
         'menuContent' : {
-          templateUrl: "templates/home_login.html",
+          templateUrl: "templates/Customer/home_login.html",
           controller: 'PlaylistsCtrl'
         }
       }
     })
 
-    .state('app.transaction', {
+    .state('customer.transaction', {
       url: '/transaction',
       views: {
         'menuContent' : {
-          templateUrl: "templates/transaction.html",
+          templateUrl: "templates/Customer/transaction.html",
           controller: 'PlaylistsCtrl'
         }
       }
     })
 
-    .state('app.home_queue', {
+    .state('customer.home_queue', {
       url: '/home_queue',
       views: {
         'menuContent' : {
-          templateUrl: "templates/home_queue.html",
+          templateUrl: "templates/Customer/home_queue.html",
           controller: "PlaylistsCtrl"
         }
       }
     })
-    .state('app.adminView', {
-       url: '/adminView',
+
+    .state('customer.home_home', {
+          url: '/home_home',
+          views: {
+            'menuContent' : {
+              templateUrl: "templates/Customer/home_home.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        })
+
+     .state('customer.about', {
+          url: '/about',
+          views: {
+            'menuContent' : {
+              templateUrl: "templates/Customer/about.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        })        
+
+     .state('customer.profile', {
+          url: '/profile',
+          views: {
+            'menuContent' : {
+              templateUrl: "templates/Customer/profile.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        }) 
+
+////////////////////End here////////////////////////////////
+///////////////////Employees User//////////////////////////
+  
+    .state('employees', {
+      url: '/employees',
+      abstract: true,
+      templateUrl: 'templates/employees/employees_menu.html',
+      controller: 'PlaylistsCtrl'
+    })
+
+
+    .state('employees.employees_view', {
+       url: '/employees_view',
       views: {
         'menuContent' : {
-          templateUrl: "templates/Admin/admin_view.html",
+          templateUrl: "templates/employees/employees_view.html",
           controller: "PlaylistsCtrl"
         }
       }
     })
-    .state('app.signUp', {
-       url: '/signUp',
+
+    .state('employees.profile', {
+      url: '/profile',
       views: {
-        'menuContent' : {
-          templateUrl: "templates/signup.html",
-          controller: "PlaylistsCtrl"
-        }
-      }
-    })
+          'menuContent' : {
+              templateUrl: "templates/employees/profile.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        }) 
+
+    .state('employees.about', {
+        url: '/about',
+        views: {
+            'menuContent' : {
+              templateUrl: "templates/employees/about.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        })
     ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

@@ -1,19 +1,22 @@
 <ion-view view-title="{{title}}">
   <ion-content>
+  <div class="bar bar-header bar-balanced">
+    <h1 class="title">Login Account</h1>
+  </div>
+  <br><br><br>
     <form name="loginForm" novalidate>
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username" ng-minlength="5" required>
+          <input type="text" placeholder="Username" ng-model="loginData.username" ng-minlength="5" required>
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password" ng-minlength="6" required>
+          <input type="password" placeholder="Password" ng-model="loginData.password" ng-minlength="5" required>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-disabled="loginForm.$invalid" ng-click="doLogin()">Enter</button>    
-        </label>
+            <button class="button button-block button-positive" ng-disabled="loginForm.$invalid" ng-click="doLogin()">Enter</button>   
+          </label>
       </div>
-    </form>
+     </form> 
+    <a href="#/signup">No Account??</a>
   </ion-content>
 </ion-view>

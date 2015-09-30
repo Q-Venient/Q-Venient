@@ -39,15 +39,14 @@ angular.module('starter.controllers', [])
     if($scope.loginData.username == "admin" && $scope.loginData.password == "123456"){
           $timeout(function() {
           $scope.closeLogin();
-          $location.path('app/adminView');
+          $location.path('employees/employees_view');
         }, 1000);
     } else {
           $timeout(function() {
           $scope.closeLogin();
-          $location.path('app/home_login');
+          $location.path('customer/home_home');
         }, 1000);
-    }
-   
+    } 
   };
 })
 
@@ -62,18 +61,14 @@ angular.module('starter.controllers', [])
   $scope.next = function() {
     console.log('Queue Number', $scope.queue);
     $timeout(function() {
-        $location.path('app/transaction');
+        $location.path('customer/transaction');
       }, 1000); 
   };
-
-  $scope.signUp = function() {
-    $location.path('app/signUp');
-  }
 
   $scope.nextqueue = function() {
     console.log('Going In......');
     $timeout(function() {
-      $location.path('app/home_queue');
+      $location.path('customer/home_queue');
     }, 1000);
   }
 })
