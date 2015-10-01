@@ -171,6 +171,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
           }
         })
+
+    .state('employees.home_home', {
+        url: '/home_home',
+        views: {
+            'menuContent' : {
+              templateUrl: "templates/employees/home_home.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        })
     ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

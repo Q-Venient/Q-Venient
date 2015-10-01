@@ -71,6 +71,11 @@ angular.module('starter.controllers', [])
       $location.path('customer/home_queue');
     }, 1000);
   }
+
+  $scope.cancel = function() {
+    $location.path('customer/home_home');
+  }
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
