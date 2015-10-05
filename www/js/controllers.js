@@ -65,6 +65,16 @@ angular.module('starter.controllers', [])
       }, 1000); 
   };
 
+  $counter = 1;
+
+
+  $scope.count = function()
+  {
+    $scope.processNum=$counter;
+    console.log($counter++);
+  
+  }
+
   $scope.nextqueue = function() {
     console.log('Going In......');
     $timeout(function() {
