@@ -64,15 +64,16 @@ angular.module('starter.controllers', [])
         $location.path('customer/transaction');
       }, 1000); 
   };
-
+  
   $counter = 1;
-
-
   $scope.count = function()
   {
-    $scope.processNum=$counter;
-    console.log($counter++);
-  
+    if($counter > 10)
+    {
+      $counter = 1;
+    }
+       $scope.processNum = $counter;
+         console.log($counter++);
   }
 
   $scope.nextqueue = function() {
