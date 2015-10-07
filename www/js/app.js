@@ -91,15 +91,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('customer.home_queue', {
-      url: '/home_queue',
-      views: {
-        'menuContent' : {
-          templateUrl: "templates/Customer/home_queue.html",
-          controller: "PlaylistsCtrl"
-        }
-      }
-    })
+     .state('customer.about', {
+          url: '/about',
+          views: {
+            'menuContent' : {
+              templateUrl: "templates/Customer/about.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        })
+
 
     .state('customer.home_home', {
           url: '/home_home',
@@ -109,17 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               controller: "PlaylistsCtrl"
             }
           }
-        })
-
-     .state('customer.about', {
-          url: '/about',
-          views: {
-            'menuContent' : {
-              templateUrl: "templates/Customer/about.html",
-              controller: "PlaylistsCtrl"
-            }
-          }
-        })        
+        })                 
 
      .state('customer.profile', {
           url: '/profile',
@@ -130,6 +121,25 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
           }
         }) 
+
+
+    .state('customerNew', {
+      url: '/customer',
+      abstract: true,
+      templateUrl: 'templates/customer/customer_new_menu.html',
+      controller: 'PlaylistsCtrl'
+    })     
+
+    .state('customerNew.home_queue', {
+      url: '/home_queue',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/Customer/home_queue.html",
+          controller: "PlaylistsCtrl"
+        }
+      }
+    })
+
 
 ////////////////////End here////////////////////////////////
 ///////////////////Employees User//////////////////////////
