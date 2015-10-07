@@ -65,13 +65,16 @@ angular.module('starter.controllers', [])
       }, 1000); 
   };
   
+  $scope.defaults = 0;
   $counter = 1;
   $scope.count = function()
   {
-    if($counter > 10)
+
+    if($counter < 2)
     {
-      $counter = 1;
+      $scope.defaults = " ";
     }
+   
        $scope.processNum = $counter;
          console.log($counter++);
   }
