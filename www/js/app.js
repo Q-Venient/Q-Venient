@@ -122,6 +122,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           }
         }) 
 
+      .state('customer.update_profile', {
+          url: '/update_profile',
+          views: {
+            'menuContent' : {
+              templateUrl: "templates/Customer/update_profile.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        }) 
+
+
+
 
     .state('customerNew', {
       url: '/customer',
@@ -171,6 +183,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
           }
         }) 
+
+      .state('employees.update_profile', {
+          url: '/update_profile',
+          views: {
+            'menuContent' : {
+              templateUrl: "templates/employees/update_profile.html",
+              controller: "PlaylistsCtrl"
+            }
+          }
+        }) 
+
 
     .state('employees.about', {
         url: '/about',

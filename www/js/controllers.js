@@ -56,6 +56,9 @@ angular.module('starter.controllers', [])
   $scope.title="Q-Venient";
   $scope.login_title="Home";
 
+
+/////////////////////Customer side /////////////////////////
+
   $scope.queue = {};
 
   $scope.next = function() {
@@ -64,20 +67,6 @@ angular.module('starter.controllers', [])
         $location.path('customer/transaction');
       }, 1000); 
   };
-  
-  $scope.defaults = 0;
-  $counter = 1;
-  $scope.count = function()
-  {
-
-    if($counter < 2)
-    {
-      $scope.defaults = " ";
-    }
-   
-       $scope.processNum = $counter;
-         console.log($counter++);
-  }
 
   $scope.nextqueue = function() {
     console.log('Going In......');
@@ -90,7 +79,34 @@ angular.module('starter.controllers', [])
     $location.path('customer/home_home');
   }
 
+  $scope.update = function() {
+    $location.path('customer/update_profile')
+  }
+
+//////////////////Employees Side ////////////////////
+
+  $scope.defaults = 0;
+  $counter = 1;
+  
+  $scope.count = function()
+  {
+
+    if($counter < 2)
+    {
+      $scope.defaults = " ";
+    }
+   
+       $scope.processNum = $counter;
+         console.log($counter++);
+  }
+
+  $scope.updates = function() {
+    $location.path('employees/update_profile')
+  }
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
+
+
