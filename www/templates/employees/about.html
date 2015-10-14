@@ -10,26 +10,11 @@
     			<h2>The Team</h2>
     		</center>
     	</div>
-    	<div class="item item-text-wrap">
+    	<div class="item item-text-wrap" ng-repeat="developer in developers">
 	    	<div class="item item-avatar">
 	    		<img src="img/kiddie.jpg">
-	    		<h2>Jerome Pacana</h2>
-	    		<h2>The Designer/Developer</h2>
-	    	</div>
-	    	<div class="item item-avatar">
-	    		<img src="img/jarc.jpg">
-	    		<h2>John Alfred Catampo</h2>
-	    		<h2>The Developer/Designer</h2>
-	    	</div>
-	    	<div class="item item-avatar">
-	    		<img src="img/john.jpg">
-	    		<h2>John Webster Ceballos</h2>
-	    		<h2>The System Analyst/Team Leader</h2>
-	    	</div>
-	    	<div class="item item-avatar">
-	    		<img src="img/larry.jpg">
-	    		<h2>Larry Paul Lague</h2>
-	    		<h2>The Hardware Specialist/Mobile Technology Specialist</h2>
+	    		<h2>{{developer.firstname}} {{developer.lastname}}</h2>
+	    		<h2>{{developer.position}}</h2>
 	    	</div>
     	</div>
     </div>

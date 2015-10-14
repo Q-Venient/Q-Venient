@@ -1,0 +1,28 @@
+<ion-view view-title="{{title}}">
+  <ion-content>
+		<form>
+			<div class="list list-inset">
+			  <label class="item item-input">
+			    <input type="text" placeholder="First Name" ng-model="addUser.firstname">
+			  </label>
+			  <label class="item item-input">
+			    <input type="text" placeholder="Last Name" ng-model="addUser.lastname">
+			  </label>
+			  <label class="item item-input">
+			    <input type="email" placeholder="Email" ng-model="addUser.email">
+			  </label>
+			  <label class="item item-input">
+			    <input type="number" placeholder="Age" ng-model="addUser.age">
+			  </label>
+			  <label class="item item-input">
+			    <input type="text" placeholder="User Name" ng-model="addUser.username">
+			  </label>
+			  <label class="item item-input">
+			    <input type="password" placeholder="Password" ng-model="addUser.password">
+			  </label>
+			</div>
+			<button class="button icon ion-person-add button-block button-calm" ng-click="addaccount()">Create Account</button>
+			<button class="button button-block button-assertive" ng-click="cancel()">Cancel</button>
+		</form>
+  </ion-content>
+</ion-view>

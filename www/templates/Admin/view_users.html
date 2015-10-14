@@ -1,0 +1,26 @@
+<ion-view view-title="{{title}}">
+  <ion-content>
+	<center>
+    	<h1>View</h1>
+    </center>
+    <div class="list card">
+    	<div class="item item-divider">
+    		<center>
+    			<h2>All Users</h2>
+    		</center>
+    	</div>
+    	<div class="item item-text-wrap" ng-repeat="user in users">
+	    	<div class="item">
+	    		<h3 class="order">{{user.firstname}} {{user.lastname}}</h3>
+	    		<h3 class="order">{{user.email}}</h3>
+	    		<h3 class="order">{{user.age}}</h3>
+          <button class="button button-small button-calm" ng-click="update({{user.id}})">Update</button>
+          <button class="button button-small button-assertive" ng-click="delete({{user.id}})">Delete</button>
+	    	</div>
+    	</div>
+   	</div>
+   	<footer>
+    	<center>All Rights Reserved 2015</center>
+    </footer>
+  </ion-content>
+</ion-view>   	 	

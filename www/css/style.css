@@ -18,3 +18,12 @@ footer {
 h2 {
 	color: black;
 }
+
+
+.order :nth-child(odd) {
+	background: #221E1D;
+}
+
+.order :nth-child(even) {
+	background: #E9633B;
+}

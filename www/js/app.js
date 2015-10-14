@@ -40,7 +40,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   .state('signup', {
     url: '/signup',
-    templateUrl: 'templates/signup.html'
+    templateUrl: 'templates/signup.html',
+    controller: 'Backendz'
     })
 
   .state('app.about', {
@@ -48,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/about.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'Backendz'
         }
       }
     })
@@ -96,7 +97,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           views: {
             'menuContent' : {
               templateUrl: "templates/Customer/about.html",
-              controller: "PlaylistsCtrl"
+              controller: "Backendz"
             }
           }
         })
@@ -200,7 +201,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         views: {
             'menuContent' : {
               templateUrl: "templates/employees/about.html",
-              controller: "PlaylistsCtrl"
+              controller: "Backendz"
             }
           }
         })
@@ -214,6 +215,76 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
           }
         })
+
+///////////////////Admin user//////////////////////////////////
+
+    .state('admin', {
+      url: '/admin',
+      abstract: true,
+      templateUrl: 'templates/admin/admin_menu.html',
+      controller: 'PlaylistsCtrl'
+    })
+
+    .state('admin.admin_view', {
+       url: '/admin_view',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/admin/admin_view.html",
+          controller: "Backendz"
+        }
+      }
+    })
+
+    .state('admin.about', {
+       url: '/about',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/admin/about.html",
+          controller: "Backendz"
+        }
+      }
+    })
+
+    .state('admin.profile', {
+       url: '/profile',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/admin/profile.html",
+          controller: "Backendz"
+        }
+      }
+    })
+
+    .state('admin.view_users', {
+       url: '/view_users',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/admin/view_users.html",
+          controller: "Backendz"
+        }
+      }
+    })
+
+    .state('admin.add_user', {
+       url: '/add_user',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/admin/add_user.html",
+          controller: "Backendz"
+        }
+      }
+    })                        
+
+    .state('admin.view_one', {
+      url: '/view_one_user',
+      views: {
+        'menuContent' : {
+          templateUrl: "templates/admin/view_one_user.html",
+          controller: "Backendz"
+        }
+      }
+    })
+
     ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

@@ -3,26 +3,50 @@
     <div class="bar bar-header bar-balanced">
  		<h1 class="title">Sign Up</h1>
 	</div><br><br> 
-		<div class="list list-inset">
-		  <label class="item item-input">
-		    <input type="text" placeholder="First Name">
-		  </label>
-		  <label class="item item-input">
-		    <input type="text" placeholder="Last Name">
-		  </label>
-		  <label class="item item-input">
-		    <input type="email" placeholder="Email">
-		  </label>
-		  <label class="item item-input">
-		    <input type="number" placeholder="Age">
-		  </label>
-		  <label class="item item-input">
-		    <input type="text" placeholder="User Name">
-		  </label>
-		  <label class="item item-input">
-		    <input type="password" placeholder="Password">
-		  </label>
-		</div>
-		<button class="button icon ion-person-add button-block button-calm">   Create Account</button>
+		<form>
+			<div class="list list-inset">
+			  <label class="item item-input">
+			    <input type="text" placeholder="First Name" ng-model="addUser.firstname">
+			  </label>
+			  <label class="item item-input">
+			    <input type="text" placeholder="Last Name" ng-model="addUser.lastname">
+			  </label>
+			  <label class="item item-input">
+			    <input type="email" placeholder="Email" ng-model="addUser.email">
+			  </label>
+			  <label class="item item-input">
+			    <input type="number" placeholder="Age" ng-model="addUser.age">
+			  </label>
+			  <label class="item item-input">
+			    <input type="text" placeholder="User Name" ng-model="addUser.username">
+			  </label>
+			  <label class="item item-input">
+			    <input type="password" placeholder="Password" ng-model="addUser.password">
+			  </label>
+			</div>
+			<button class="button icon ion-person-add button-block button-calm" ng-click="addaccount()">   Create Account</button>
+			<button class="button button-block button-assertive" ng-click="cancelsignup()">Cancel</button>
+		</form>
+<!-- 		<br><br>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<td>Id</td>
+						<td>Firstname</td>
+						<td>Lastname</td>
+						<td>Email</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="account in accounts">
+						<td>{{account.id}}.</td>
+						<td>{{account.firstname}}.</td>
+						<td>{{account.lastname}}.</td>
+						<td>{{account.email}}.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> -->
   </ion-content>
 </ion-view>
