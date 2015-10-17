@@ -21,8 +21,31 @@
 			    <input type="password" placeholder="Password" ng-model="addUser.password">
 			  </label>
 			</div>
-			<button class="button icon ion-person-add button-block button-calm" ng-click="addaccount()">Create Account</button>
-			<button class="button button-block button-assertive" ng-click="cancel()">Cancel</button>
+			<div>
+			<div class="list list-inset">
+				<button class="button icon ion-person-add button-block button-balanced" ng-click="addaccount()">Create Account</button>
+				<button class="button button-block button-assertive" ng-click="cancel()">Cancel</button>
+			</div>
 		</form>
-  </ion-content>
+<!-- 		<table>
+			<thead>
+				<tr>
+					<td>Firstname</td>
+					<td>Lastname</td>
+					<td>Email</td>
+					<td>Age</td>
+					<td>Username</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in users">
+					<td>{{user.firstname}}</td>
+					<td>{{user.lastname}}</td>
+					<td>{{user.email}}</td>
+					<td>{{user.age}}</td>
+					<td>{{user.username}}</td>
+				</tr>
+			</tbody>
+		</table>
+ -->  </ion-content>
 </ion-view>

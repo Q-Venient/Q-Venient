@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location) {
+.controller('AppCtrl', function($scope, $http, $ionicModal, $timeout, $location) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -37,23 +37,60 @@ angular.module('starter.controllers', [])
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     console.log($scope.loginData);
-    if($scope.loginData.username == "cashier" && $scope.loginData.password == "123456"){
-          $timeout(function() {
-          $scope.closeLogin();
-          $location.path('employees/employees_view');
-        }, 1000);
-    } else if($scope.loginData.username == "admin" && $scope.loginData.password == "123456") {
-          $timeout(function() {
-          $scope.closeLogin();
-          $location.path('admin/admin_view');
-        }, 1000);
-    } else {
-          $timeout(function() {
-          $scope.closeLogin();
-          $location.path('customer/home_home');
-        }, 1000);
-    } 
+      $http.post('http://192.168.137.122/myApp/authenticate/login', angular.copy($scope.loginData))
+        .success(function(successResp) {
+          console.log(successResp)
+          if( !successResp ) {
+            alert('Invalid Account')
+          } else {
+            switch(successResp.userType) {
+              case 'personnel':
+                $location.path('employees/employees_view')
+                break;
+              case 'admin':
+                $location.path('admin/admin_view')
+                break;
+              default:
+                $location.path('customer/home_home')
+            }
+          }
+        })
+        .error(function(errorResp) {
+          console.log(errorResp)
+        })
+    // if($scope.loginData.username == "cashier" && $scope.loginData.password == "123456"){
+    //       $timeout(function() {
+    //       $scope.closeLogin();
+    //       $location.path('employees/employees_view');
+    //     }, 1000);
+    // } else if($scope.loginData.username == "admin" && $scope.loginData.password == "123456") {
+    //       $timeout(function() {
+    //       $scope.closeLogin();
+    //       $location.path('admin/admin_view');
+    //     }, 1000);
+    // } else {
+    //       $timeout(function() {
+    //       $scope.closeLogin();
+    //       $location.path('customer/home_home');
+    //     }, 1000);
+    // } 
   };
+
+    $scope.login = function(data) {
+    // console.log(data);
+    $http.post("http://localhost/barcroid_backend/users/login", angular.copy($scope.data))
+      .success(function (response){
+      console.log(response);
+
+       // if (response.status == true) {
+        // $state.go('app.profile');
+      // }
+    })
+      .error(function(errorResp) {
+        console.log(errorResp)
+      })
+  };
+
 })
 
 
@@ -89,6 +126,10 @@ angular.module('starter.controllers', [])
   }
 
 //////////////////End of Customer/////////////////////
+
+/*******************************************************/
+/*******************************************************/
+
 //////////////////Employees Side ////////////////////
 
   $scope.defaults = 0;
@@ -104,7 +145,7 @@ angular.module('starter.controllers', [])
    
        $scope.processNum = $counter;
          console.log($counter++);
-         $http.post('http://localhost/myApp/todo/', {'status': $scope.processNum})
+         $http.post('http://192.168.137.122/myApp/todo/', {'status': $scope.processNum})
   }
 
   $scope.updates = function() {
@@ -113,20 +154,28 @@ angular.module('starter.controllers', [])
 
 })
 ///////////////////////////End of Employees////////////////////
-///////////////////////////Backend side//////////////////////
-.controller('Backendz', function($scope, $timeout, $location, $http) {
 
+///////////////////////////Backend side//////////////////////
+.controller('Backendz', function($scope, $timeout, $stateParams, $location, $http) {
+
+  // console.log($stateParams)
   $scope.users = [];
   $scope.addUser = {};
   $scope.developers = [];
 
+
+  $http.get('http://192.168.137.122/myApp/user/index_id/id/' + $stateParams.userID).success(function (response) {
+      
+      $scope.user = response[0];
+      console.log($scope.user)
+    })
 
   $scope.cancelsignup = function() {
     $location.path('/home');
   }
 
 
-  $http.get('http://localhost/myApp/developer').success(function (response)
+  $http.get('http://192.168.137.122/myApp/developer').success(function (response)
       {
           $scope.developers = response;
         })
@@ -139,7 +188,7 @@ angular.module('starter.controllers', [])
                 }
 
     console.log($scope.addUser);
-    $http.post('http://localhost/myApp/user', data).success(function (data, status) {
+    $http.post('http://192.168.137.122/myApp/user', data).success(function (data, status) {
       alert('user added');
 
       $scope.users.push(data);
@@ -151,9 +200,8 @@ angular.module('starter.controllers', [])
       $scope.addUser.username = "";
       $scope.addUser.password = "";
       
-      // $scope.addUser = '';
+      $scope.view_user();
 
-      // $location.path('admin/view_users');
     })            
   }
 
@@ -168,7 +216,7 @@ angular.module('starter.controllers', [])
 
   $scope.delete = function(id) {
       console.log(id);
-      $http.delete('http://localhost/myApp/user/' + id).success(function (response) {
+      $http.delete('http://192.168.137.122/myApp/user/' + id).success(function (response) {
         console.log(response);
       $scope.users.splice(id, 1);  
       
@@ -176,15 +224,27 @@ angular.module('starter.controllers', [])
       
       })
   }
+
+  $scope.view_one_user = function(id) {
+    $http.get('http://192.168.137.122/myApp/user/index_id/id/' + id).success(function (response) {
+      
+      $scope.user = response[0];
+      console.log($scope.user);
+
+
+      $location.path('admin/view_one_user/'+$scope.user.id);
+    })
+  }
+
   $scope.view_user = function() {
 
-     $http.get('http://localhost/myApp/user').success(function (users) {
+     $http.get('http://192.168.137.122/myApp/user').success(function (users) {
 
     $scope.users = users;
     })
   }
 
-  $http.get('http://localhost/myApp/user').success(function (users) {
+  $http.get('http://192.168.137.122/myApp/user').success(function (users) {
 
     $scope.users = users;
   

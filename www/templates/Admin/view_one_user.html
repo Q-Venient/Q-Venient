@@ -6,16 +6,18 @@
     <div class="list card">
     	<div class="item item-divider">
     		<center>
-    			<h2>All Users</h2>
+    			<h2>{{user.firstname}}</h2>
     		</center>
     	</div>
     	<div class="item item-text-wrap">
-	    	<div class="item">
-	    		<h3 class="order">{{firstname}} {{lastname}}</h3>
-	    		<h3 class="order">{{email}}</h3>
-	    		<h3 class="order">{{age}}</h3>
-	    	</div>
-    	</div>
+         <i class="icon ion-person"></i> {{user.firstname}} {{user.lastname}}
+      </div>
+      <div class="item item-text-wrap">
+        <i class="icon ion-at"></i> {{user.email}}
+      </div>
+      <div class="item item-text-wrap">
+        <i class="icon ion-arrow-right-a"></i> {{user.age}}
+      </div>
    	</div>
    	<footer>
     	<center>All Rights Reserved 2015</center>

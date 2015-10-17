@@ -276,7 +276,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })                        
 
     .state('admin.view_one', {
-      url: '/view_one_user',
+      url: '/view_one_user/:userID',
       views: {
         'menuContent' : {
           templateUrl: "templates/admin/view_one_user.html",
